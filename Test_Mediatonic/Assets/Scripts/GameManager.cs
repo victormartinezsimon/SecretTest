@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
         get { return _left_time; }
     }
 
-    public string _menu_scene_name = "menu";
-    public  string _game_scene_name = "game";
+    public string _menu_scene_name = "Menu";
+    public  string _game_scene_name = "Game";
 
     void Awake()
     {
