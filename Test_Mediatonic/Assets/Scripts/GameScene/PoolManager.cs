@@ -46,6 +46,7 @@ public class PoolManager : MonoBehaviour
         _items_in_use.Remove(new_object);
         _available_items.Add(new_object);
         new_object.transform.position = not_visible_position;
+        new_object.transform.rotation = Quaternion.Euler(0, 0, 0);//we set the rotation to 0 just in case
         new_object.SetActive(false);
     }
 }

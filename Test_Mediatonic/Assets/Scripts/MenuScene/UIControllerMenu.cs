@@ -26,4 +26,9 @@ public class UIControllerMenu : MonoBehaviour
         _high_score.text = "High Score: " + _manager.Best_Score.ToString();
 
     }
+
+    public void onButtonPress()
+    {
+        _manager.GoToGame();
+    }
 }
