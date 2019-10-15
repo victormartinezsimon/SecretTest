@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         get { return _current_score; }
     }
 
-    private int _left_time = 0;
+    public int _left_time = 0;
     public int Left_Time
     {
         get { return _left_time; }
@@ -70,9 +70,10 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        _current_score = 0;
+        _current_score = 10;
         _left_time = _time_limit;
         StartCoroutine(WaitTimeCoroutine());
+        Debug.Log("en start game");
     }
 
     public void GoToGame()
