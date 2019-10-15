@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void PlaneHit()
     {
         _current_score += _poinst_per_plane;
+        //make the sound
     }
 
     public void StartGame()
