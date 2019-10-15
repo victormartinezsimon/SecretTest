@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int _current_best_score = 100;
     public int Best_Score
     {
-        get { return _current_score; }
+        get { return _current_best_score; }
     }
     public int _poinst_per_plane = 1;
     
@@ -72,8 +72,12 @@ public class GameManager : MonoBehaviour
     {
         _current_score = 0;
         _left_time = _time_limit;
-        SceneManager.LoadScene(_game_scene_name);
         StartCoroutine(WaitTimeCoroutine());
+    }
+
+    public void GoToGame()
+    {
+        SceneManager.LoadScene(_game_scene_name);
     }
 
     public void EndGame()

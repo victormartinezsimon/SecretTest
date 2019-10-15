@@ -47,4 +47,5 @@ MonoBehaviour:
   _time_limit: 30
   _current_best_score: 100
   _poinst_per_plane: 1
-  _current_score: 0
+  _menu_scene_name: Menu
+  _game_scene_name: Game
