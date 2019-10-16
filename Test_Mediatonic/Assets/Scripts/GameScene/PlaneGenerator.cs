@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaneGenerator : MonoBehaviour
 {
-	public GameStart _gameStart;
+	public StartManager _startManager;
 	private GameManager _manager;
 	private PoolManager _pool;
 	private int _currentPlanesAlive;
@@ -13,7 +13,9 @@ public class PlaneGenerator : MonoBehaviour
 	{
 		_manager = GameManager._instance;
 		_pool = getComponent<PoolManager>();
-		Random.InitState(42);
+        _startManager = FindObjectsOfType<StartManager>();
+
+        Random.InitState(42);
 		GeneratePlanes();
 	}
 
@@ -41,8 +43,10 @@ public class PlaneGenerator : MonoBehaviour
 			if(_pool.getItem(out plane))
 			{
 				Vector2 position = new Vector2(0,0);
-				position.x = _gameStart.
-			}
+                position.x = _startManager.TopLeft.x;
+                position.y = Random.Range(_startManager.BottomRight.y - 1, _startManager.TopLeft.y + 1);
+                plane.transform.position = position;
+            }
 		}
 	}
 }
