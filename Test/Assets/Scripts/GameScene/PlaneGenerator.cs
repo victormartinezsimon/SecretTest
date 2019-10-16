@@ -15,7 +15,7 @@ public class PlaneGenerator : MonoBehaviour
         _pool = GetComponent<PoolManager>();
         _startManager = FindObjectOfType<StartManager>();
 
-        Random.InitState(42);
+        Random.InitState((int)Time.realtimeSinceStartup);
 		GeneratePlanes();
 	}
 

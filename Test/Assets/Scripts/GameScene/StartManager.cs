@@ -27,7 +27,7 @@ public class StartManager : MonoBehaviour
 
     void Start()
     {
-        _manager = FindObjectOfType<GameManager>();
+        _manager = GameManager._instance;
 
         Vector3 copyBottomLeft = _camera.ViewportToWorldPoint(new Vector3(0, 0, _camera.nearClipPlane));
         Vector3 copyTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, _camera.nearClipPlane));

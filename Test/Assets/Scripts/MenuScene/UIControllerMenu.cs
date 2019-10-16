@@ -12,7 +12,7 @@ public class UIControllerMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _manager = FindObjectOfType<GameManager>();
+        _manager = GameManager._instance;
 
         if(_manager.Current_Score > 0)
         {

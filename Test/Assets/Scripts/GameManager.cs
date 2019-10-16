@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
 
     public string _server_endpoint = "";
 
-    private int _time_limit = 30;
+    public int _time_limit = 30;
     public int Time_Limit
     {
         get { return _time_limit; }
     }
-    private int _current_best_score = 100;
+    public int _current_best_score = 100;
     public int Best_Score
     {
         get { return _current_best_score; }
@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour
 
     private int _poinst_per_plane = 1;
 
-    private int _current_score = 0;
+    public int _current_score = 0;
     public int Current_Score
     {
         get { return _current_score; }
     }
 
-    private int _left_time_in_game = 0;
+    public int _left_time_in_game = 0;
     public int Left_Time
     {
         get { return _left_time_in_game; }
@@ -62,8 +62,6 @@ public class GameManager : MonoBehaviour
 
         //get the data from de darpa-net ;)
         StartCoroutine(getConfigurationFromServer());
-
-        Debug.Log("en el awake");
 
         _audioSource = GetComponent<AudioSource>();
     }
@@ -107,7 +105,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("start game");
         _current_score = 0;
         _left_time_in_game = _time_limit;
         StartCoroutine(WaitTimeCoroutine());
@@ -131,7 +128,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaitTimeCoroutine()
     {
-        Debug.Log("en la cuenta atras");
         while(_left_time_in_game > 0)
         {
             yield return new WaitForSeconds(1f);//we sleep 1 second

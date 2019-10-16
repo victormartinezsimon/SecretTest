@@ -12,7 +12,7 @@ public class UIControllerGame : MonoBehaviour
 
     void Start()
     {
-        _manager = FindObjectOfType<GameManager>();
+        _manager = GameManager._instance;
         _best_Score.text = _manager.Best_Score.ToString();
     }
 
