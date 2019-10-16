@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177edc93e0194764f91daa096f01345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 2
+  _velocity: 10
 --- !u!61 &5142954840454454861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1058252229067071977}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

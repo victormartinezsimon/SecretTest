@@ -11,7 +11,7 @@ public class PoolManager : MonoBehaviour
     private List<GameObject> _items_in_use;
     private Vector2 not_visible_position = new Vector2(-1000, -1000);
 
-    void Start()
+    void Awake()
     {
         _available_items = new List<GameObject>();
         _items_in_use = new List<GameObject>();
