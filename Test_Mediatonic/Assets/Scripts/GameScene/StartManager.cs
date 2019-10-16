@@ -12,6 +12,18 @@ public class StartManager : MonoBehaviour
     public Camera _camera;
     public GameObject _gun;
 
+    private Vector2 _topLeft;
+    private Vector2 _bottomRight;
+
+    public Vector2 TopLeft
+    {
+        get { return _topLeft; }
+    }
+
+    public Vector2 BottomRight
+    {
+        get { return _bottomRight;}
+    }
 
     void Start()
     {
@@ -51,6 +63,9 @@ public class StartManager : MonoBehaviour
             position.y = -_camera.orthographicSize * 3 / 4;
             _gun.transform.position = position;
         }
+
+        _topLeft = new Vector2(_left.transform.position.x, _top.transform.position.y);
+        _bottomRight = new Vector2(_right.transform.position.x, _bottom.transform.position.y);
 
         _manager.StartGame();
     }
