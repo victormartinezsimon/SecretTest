@@ -11,47 +11,58 @@ public class PlaneGenerator : MonoBehaviour
 
 	void Start()
 	{
-		_manager = GameManager._instance;
+		_manager = GameManager.Instance;
         _pool = GetComponent<PoolManager>();
-        _startManager = FindObjectOfType<StartManager>();
 
-        Random.InitState((int)Time.realtimeSinceStartup);
-		GeneratePlanes();
+        Random.InitState((int)Time.realtimeSinceStartup);//we initializate the random 
+		GeneratePlanes();//the first time, we generate some planes
 	}
 
+    /// <summary>
+    /// This method is called any time there is a collision between a plane and a bullet
+    /// </summary>
 	public void PlaneDestroyed()
 	{
-		//we notify the gamemanager
-		 GameManager._instance.PlaneHit();
+		//we notify the gamemanager that there is a collision, so the score can be increased
+		 _manager.PlaneHit();
 
 		 //we update the current planes alive
 		 --_currentPlanesAlive;
 
+         //if there is no more planes alive, that means that we need to generate move planes
 		 if(_currentPlanesAlive == 0)
 		 {
 		 	GeneratePlanes();
 		 }
 	}
 
+    /// <summary>
+    /// this method generate random planes
+    /// For each plane, change the position to a random value
+    /// Also change the velocity to a random value
+    /// with this two randoms, every play is different
+    /// </summary>
 	public void GeneratePlanes()
 	{
-        _currentPlanesAlive = Random.Range(3,5);
+        _currentPlanesAlive = Random.Range(3,5);//random to generate the number of planes
 
-        float _total_diff = _startManager.TopRight.y - _startManager.BottomLeft.y;
+        float _total_diff = _startManager.TopRight.y - _startManager.BottomLeft.y; //total Height in world coordinates
 
-        float _diff_between_planes = _total_diff / 10;
+        float _diff_between_planes = _total_diff / 10;//this is the Y difference between planes
 
-        float first_plane_y = _startManager.BottomLeft.y + _total_diff / 2;
+        float first_plane_y = _startManager.BottomLeft.y + _total_diff / 2; //the planes minimun Y will be the half of the screen
 
         for (int i = 0; i < _currentPlanesAlive; ++i)
 		{
-			GameObject plane;
-			if(_pool.getItem(out plane))
+			GameObject plane = null;
+			if(_pool.GetItem(out plane))
 			{
-                Vector2 position = new Vector2(_startManager.BottomLeft.x, first_plane_y + _diff_between_planes * i);
+                float startX = _startManager.BottomLeft.x - Random.Range(0f, 4f);//the plane will start from the limit left of the screen and limit left -4 
+                float startY = first_plane_y + _diff_between_planes * i;
+                Vector2 position = new Vector2(startX, startY);
                 plane.transform.position = position;
                 plane.SetActive(true);
-                plane.GetComponent<LinearMovement>()._velocity = Random.Range(2, 5);
+                plane.GetComponent<LinearMovement>()._velocity = Random.Range(2.0f, 5.0f);//we set the velocity to a random value
             }
 		}
     }

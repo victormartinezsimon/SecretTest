@@ -8,6 +8,7 @@ public class LinearMovement : MonoBehaviour
 
     void Update()
     {
+        //we move the object allways to the right
         transform.position += _velocity * Time.deltaTime * transform.right;
     }
 }
