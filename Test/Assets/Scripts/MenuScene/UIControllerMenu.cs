@@ -18,7 +18,7 @@ public class UIControllerMenu : MonoBehaviour
         if(_manager.Current_Score > 0)
         {
             _current_score.text = "Last Score: " + _manager.Current_Score.ToString();
-            _current_score.enabled = false;
+            _current_score.enabled = true;
         }
         else
         {
