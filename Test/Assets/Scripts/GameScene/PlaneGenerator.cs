@@ -44,7 +44,10 @@ public class PlaneGenerator : MonoBehaviour
     /// </summary>
 	public void GeneratePlanes()
 	{
-        _currentPlanesAlive = Random.Range(3,5);//random to generate the number of planes
+        //we get the random number of planes
+        //the range is for integer numbers, so the max limit is not included. This is the reason why the random is 3-6 and not 3-5
+        _currentPlanesAlive = Random.Range(3,6);//random to generate the number of planes
+        
 
         float _total_diff = _startManager.TopRight.y - _startManager.BottomLeft.y; //total Height in world coordinates
 
