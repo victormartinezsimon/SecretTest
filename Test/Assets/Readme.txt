@@ -8,19 +8,19 @@ This script controlls the change to a different scene, it get the data from the 
 
 The ui:
 The UI its simple. It will read the data from the Game Manager and it will show the data. If there is a button, the UI will call the method in the script, and the method will call the GameManager.
-I do this because if the button calls the GameManager, it may be deleted and anything will work. The GameManager can be deleted because the Singleton Pattern.
+I do this because if the button calls the GameManager, it may be deleted and nothing will work. The GameManager can be deleted because the Singleton Pattern.
 
 Pool System:
-The bullets and the planes are generated and saved in a Pool. The pool is initialized with the correct size in the Start of the script.
-At any time, when a object is needed, it can be obtained from the pool but only if there is some object available.
+The bullets and the planes are generated and saved in a Pool. The pool is initialized with the correct size in the Start() of the script.
+At any time, when a object is needed, it can be obtained from the pool, but only if there is some object available.
 
 Screen Limits:
 The task says that we need to do somethings when the plane or the bullets reach the screen limits. This task can be done in different ways.
-The first one, is a scripts that is added to the bullet or the plane and in the update, it change the transform.position and check if the object is out of the screen.
+The first one, is a script that is added to the bullet or the plane and in the update, check if the object is out of the screen.
 The second one, and the one that I make, is create some colliders in the limits and when something hits them, do the job. I do this way so you can see that I know the different between normal collision and Trigger collision.
 
 StartManager:
-The start manager move the colliders to the correct position, after that, move the turret to the correct position and notify the GameManager that everything is correct and the game can start.
+The start manager move the colliders to the correct position, after that, move the turret to the correct position and notify the GameManager that everything is correct so the game can start.
 
 Input Manager:
 The input manager is the only script that read the data from the keyboard. This script changes the turret that is visible, so everything is correctly viewed. It will also create the bullets, move to the correct position and rotate to the correct grades.
