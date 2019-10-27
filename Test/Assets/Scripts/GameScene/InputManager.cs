@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         float currentDegrees = 60;
-        if(Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKey(KeyCode.DownArrow))
         {
             currentDegrees = 90;
             _gun_90.SetActive(true);
@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            if(Input.GetKey(KeyCode.DownArrow))
+            if(Input.GetKey(KeyCode.UpArrow))
             {
                 currentDegrees = 30;
                 _gun_30.SetActive(true);

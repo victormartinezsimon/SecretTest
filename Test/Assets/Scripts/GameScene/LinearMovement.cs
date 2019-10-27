@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LinearMovement : MonoBehaviour
 {
-    public float _velocity = 2;
+    [SerializeField]
+    private float _velocity = 2;
 
     void Update()
     {
